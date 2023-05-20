@@ -262,7 +262,7 @@ public class TokenSigner
         X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
         store.Open(OpenFlags.MaxAllowed);
         X509Certificate2Collection collection = (X509Certificate2Collection)store.Certificates;
-        X509Certificate2Collection fcollection = (X509Certificate2Collection)collection.Find(X509FindType.FindBySerialNumber, "2b1cdda84ace68813284519b5fb540c2", true);
+        X509Certificate2Collection fcollection = (X509Certificate2Collection)collection.Find(X509FindType.FindByIssuerName, TokenCertificate, true);
         foreach (X509Certificate2 x509 in fcollection)
         {
             try
